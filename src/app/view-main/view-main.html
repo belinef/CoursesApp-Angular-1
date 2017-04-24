@@ -1,0 +1,24 @@
+<header class="header">
+    <img ng-src="/img/logo.png"
+         ui-sref="main.courses.list"
+         width="50"
+         height="50"
+         class="header__logo">
+
+    <courses-breadcrumb></courses-breadcrumb>
+
+    <div class="user pull-right" ng-if="view.user.logged">
+        <span class="user__name">{{view.user.name}}</span>
+        <a ng-click="view.userLogOut()" class="user__logout btn btn-primary">
+            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+            Log out
+        </a>
+    </div>
+
+</header>
+<ui-view></ui-view>
+<footer class="footer">
+    <div class="copyright">
+        &copy; Litvinov Ievgenii.
+    </div>
+</footer>

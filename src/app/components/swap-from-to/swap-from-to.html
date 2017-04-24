@@ -1,0 +1,75 @@
+<div class="swap">
+    <div class="authors-edit__list list-group">
+        <div class="swap__head list-group-item active">
+            Actual
+        </div>
+        <div class="swap-show-list">
+            <div class="swap-show-list--empty list-group-item"
+                 ng-if="!view.resultList.length">
+                No authors specified
+            </div>
+            <div ng-repeat="item in view.resultList"
+                 class="authors-edit authors-edit--actual list-group-item list-group-item-warning"
+                 ng-click="view.itemSelection($index, 'result')"
+                 ng-class="{active : view.resultListChecked[$index]}">
+                {{item}}
+            </div>
+        </div>
+    </div>
+    <div class="authors-controls">
+        <ul class="pager">
+            <li class="authors-controls__item">
+                            <span class="authors-controls__button authors-controls__button--add"
+                                  ng-click="view.addItems()">
+                                &larr; Add
+                            </span>
+            </li>
+            <li>
+                            <span class="authors-controls__button authors-controls__button--remove"
+                                  ng-click="view.removeItems()">
+                                Remove &rarr;
+                            </span>
+            </li>
+        </ul>
+    </div>
+    <div class="authors-edit__list authors-edit__list--available list-group">
+        <div class="swap__head list-group-item active">
+            Available
+        </div>
+        <form class="authors-search list-group-item" ng-if="view.initialSearchConfig.isSearchable">
+            <input type="text" class="authors-search__input form-control"
+                   placeholder="Search"
+                   ng-model="view.authorSearch">
+            <button class="authors-search__button btn btn-default"
+                    ng-click="view.findItems()"
+                    ng-if="view.initialSearchConfig.findHandler.needed">
+                Find
+            </button>
+            <button class="authors-search__button btn btn-default"
+                    ng-click="view.addNewItem()"
+                    ng-if="view.initialSearchConfig.addHandler.needed">
+                Add new
+            </button>
+        </form>
+        <div class="swap-show-list">
+            <div class="swap-show-list--empty list-group-item list-group-item-info"
+                 ng-if="!view.availableList.length">
+                            <span ng-if="!view.loading">
+                                {{view.isSearched ? 'No results' : 'Search result'}}
+                            </span>
+                <span ng-if="view.loading">
+                                <span class="search--loading">Loading...</span>
+                    <img ng-src="/img/loader.gif" width="30" height="30">
+                            </span>
+            </div>
+            <a ng-if="!view.loading"
+               ng-repeat="item in view.availableList"
+               class="authors-edit author-edit--search list-group-item list-group-item-info"
+               ng-click="view.itemSelection($index, 'available')"
+               ng-class="{active : view.availableListChecked[$index]}">
+                {{item}}
+            </a>
+        </div>
+
+    </div>
+</div>

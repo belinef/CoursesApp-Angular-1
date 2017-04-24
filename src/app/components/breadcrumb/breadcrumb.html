@@ -1,0 +1,10 @@
+<span ng-repeat="state in view.renderState">
+    <span class="breadcrumb__item"
+          ui-sref="{{state.state}}"
+          ng-class="{'breadcrumb__item--last' : $last}">
+    {{state.name}}
+    </span>
+    <span class="breadcrumb__separator">
+        {{ $last ? '' : '/'}}
+    </span>
+</span>

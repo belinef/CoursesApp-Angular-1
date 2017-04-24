@@ -1,0 +1,35 @@
+<div class="courses-list">
+    <div class="manipulation">
+        <form class="manipulation-form">
+            <input type="text"
+                   class="manipulation-form__search form-control"
+                   placeholder="Enter name or date"
+                   ng-model="view.searchCourse">
+            <button class="manipulation-form__find btn btn-success"
+                    ng-click="view.handleSearch()">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                Find
+            </button>
+        </form>
+        <button type="button"
+                class="manipulation__addCourse btn btn-warning"
+                ui-sref="main.courses.create">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            add course
+        </button>
+    </div>
+    <div class="course-list--empty"
+         ng-if="!view.courses.length">
+        <div ng-if="!view.loading">
+            No courses to show
+        </div>
+        <div ng-if="view.loading" class="courses-loading">
+            <img ng-src="/img/loading-courses.gif"
+            height="150">
+        </div>
+    </div>
+    <course-item ng-if="!view.loading"
+                 ng-repeat="course in view.courses"
+                 data-course="{{course}}">
+    </course-item>
+</div>
