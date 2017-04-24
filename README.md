@@ -2,12 +2,12 @@ You are welcome to Angular application CoursesApp
 
 1) to install application run ```npm i```
 2) to run API server run ```npm run api```
-3) to build and start application run ```npm start```
+3) to build and start application run ```npm start```  (application will starts on ```localhost:9000```)
 
-GitBash users
+(Windows) GitBash users
 
 1) to install application run ```npm i```
-2) to run API server and Application run ```npm run start:bash```
+2) to run API server and Application run ```npm run start:bash```  (application will starts on ```localhost:9000```)
 **it will run API server in another single console and application in current console**
 
 users to login   :
